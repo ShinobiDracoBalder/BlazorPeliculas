@@ -1,0 +1,8 @@
+﻿<div>
+    <p>Titulo            :@((MarkupString)Pelicula.Titulo)</p>
+    <p>Fecha Lanzamiento :<b>@Pelicula.FechaLanzamiento.ToString("dd/MM/yyy")</b></p>
+</div>
+
+@code {
+    [Parameter] public Pelicula Pelicula { get; set; }
+}

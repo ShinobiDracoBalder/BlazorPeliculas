@@ -1,0 +1,49 @@
+﻿<h3>Listado Peliculas</h3>
+
+@if (Peliculas == null)
+{
+    <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" />
+    <text>Cargando...</text>
+}
+else if (Peliculas.Count == 0)
+{
+    <text>No hay registros para mostrar...</text>
+}
+else
+{
+    @foreach (var pelicula in Peliculas)
+    {
+        <PeliculaIndividual Pelicula="pelicula"/>
+            @*<div>
+                <p>Titulo            :@((MarkupString)pelicula.Titulo)</p>
+                <p>Fecha Lanzamiento :<b>@pelicula.FechaLanzamiento.ToString("dd/MM/yyy")</b></p>
+            </div>*@
+    }
+
+    <input type="text" class="form-control"/>
+
+    @*@for (int i = 0; i < Peliculas.Count; i++)
+        {
+            <div>
+                @if (i == Peliculas.Count - 1)
+                {
+                    <p>Esta es la Ultima Pelicula</p>
+                }
+                <p>@(i+1))Titulo     : @((MarkupString)Peliculas[i].Titulo)</p>
+                <p>Fecha Lanzamiento :<b>@Peliculas[i].FechaLanzamiento.ToString("dd/MM/yyy")</b></p>
+            </div>
+        }*@
+}
+
+@code {
+
+    [Parameter]public List<Pelicula> Peliculas{ get; set;}
+
+    //protected override async Task OnInitializedAsync()
+    //{
+    //    await Task.Delay(3000);
+
+    //    //Peliculas = new List<Pelicula>();
+    //    Peliculas = ObtenerPeliculas();
+    //}
+}
